@@ -2,34 +2,34 @@
 
 // ✅ Task 1 – Teacher Interface
 interface Teacher {
-  readonly firstName: string; // cannot be modified after initialization
-  readonly lastName: string; // cannot be modified after initialization
-  fullTimeEmployee: boolean; // must always be present
-  yearsOfExperience?: number; // optional
-  location: string; // must always be present
-  [key: string]: any; // allows additional properties like contract
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any; // allow additional attributes
 }
 
 const teacher3: Teacher = {
   firstName: "John",
   lastName: "Doe",
-  location: "London",
   fullTimeEmployee: false,
-  contract: false, // extra property allowed due to index signature
+  location: "London",
+  contract: false,
 };
 
 console.log("Teacher:", teacher3);
 
-// ✅ Task 2 – Directors Interface Extends Teacher
+// ✅ Task 2 – Directors Interface (Extends Teacher)
 interface Directors extends Teacher {
-  numberOfReports: number; // additional property required for directors
+  numberOfReports: number; // mandatory property
 }
 
 const director1: Directors = {
   firstName: "John",
   lastName: "Doe",
-  location: "London",
   fullTimeEmployee: true,
+  location: "London",
   numberOfReports: 17,
 };
 
@@ -43,7 +43,7 @@ interface PrintTeacherFunction {
 const printTeacher: PrintTeacherFunction = (firstName, lastName) =>
   `${firstName.charAt(0)}. ${lastName}`;
 
-console.log("PrintTeacher:", printTeacher("John", "Doe")); // J. Doe
+console.log("PrintTeacher:", printTeacher("John", "Doe"));
 
 // ✅ Task 4 – StudentClass + Interfaces
 interface StudentConstructor {
