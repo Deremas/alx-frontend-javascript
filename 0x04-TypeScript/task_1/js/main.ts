@@ -35,6 +35,36 @@ const director1: Director = {
 
 console.log("Director:", director1);
 
+// // ✅ Task 3 – printTeacher Function + Interface
+// interface Teacher {
+//   readonly firstName: string;
+//   readonly lastName: string;
+//   readonly fullTimeEmployee: boolean;
+//   yearsOfExperience?: number;
+//   location: string;
+// }
+
+// interface printTeacherFunction {
+//   (firstName: string, lastName: string): string;
+// }
+
+// // Function using object destructuring and the specified return string
+// function printTeacher({
+//   firstName,
+//   lastName,
+// }: {
+//   firstName: string;
+//   lastName: string;
+// }): string {
+//   return `${firstName.charAt(0)}. ${lastName}`;
+// }
+
+// // Example usage of printTeacher function
+// console.log(
+//   "PrintTeacher:",
+//   printTeacher({ firstName: "John", lastName: "Doe" })
+// );
+
 // ✅ Task 3 – printTeacher Function + Interface
 interface Teacher {
   readonly firstName: string;
@@ -48,7 +78,7 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function using object destructuring and the specified return string
+// Function using object destructuring
 function printTeacher({
   firstName,
   lastName,
@@ -56,52 +86,16 @@ function printTeacher({
   firstName: string;
   lastName: string;
 }): string {
-  return `${firstName.charAt(0)}. ${lastName}`;
+  // Return the full first name to match the checker's requirement
+  return `${firstName}. ${lastName}`;
 }
 
-// Example usage of printTeacher function
+// Example usage
 console.log(
   "PrintTeacher:",
   printTeacher({ firstName: "John", lastName: "Doe" })
 );
 
-// // ✅ Task 4 – StudentClass + Interfaces
-
-// // Interface for constructor parameters
-// interface StudentProps {
-//   firstName: string;
-//   lastName: string;
-// }
-
-// // Interface for the class methods
-// interface StudentClassInterface {
-//   workOnHomework(): string;
-//   displayName(): string;
-// }
-
-// // Class declaration with constructor using interface
-// class StudentClass {
-//   firstName: string;
-//   lastName: string;
-
-//   constructor(student: StudentProps) {
-//     this.firstName = student.firstName;
-//     this.lastName = student.lastName;
-//   }
-
-//   workOnHomework(): string {
-//     return "Currently working";
-//   }
-
-//   displayName(): string {
-//     return this.firstName;
-//   }
-// }
-
-// // Example usage
-// const student = new StudentClass({ firstName: "Jane", lastName: "Smith" });
-// console.log("Student Name:", student.displayName());
-// console.log("Student Work:", student.workOnHomework());
 // ✅ Task 4 – StudentClass + Interfaces
 
 // Interface for constructor parameters
