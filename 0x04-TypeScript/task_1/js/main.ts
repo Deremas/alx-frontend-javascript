@@ -49,10 +49,7 @@ interface printTeacherFunction {
 }
 
 // Function using object destructuring and the specified return string
-function printTeacher({
-  firstName,
-  lastName
-}: {
+function printTeacher({ firstName, lastName }: {
   firstName: string;
   lastName: string;
 }): string {
