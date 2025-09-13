@@ -35,36 +35,6 @@ const director1: Director = {
 
 console.log("Director:", director1);
 
-// // ✅ Task 3 – printTeacher Function + Interface
-// interface Teacher {
-//   readonly firstName: string;
-//   readonly lastName: string;
-//   readonly fullTimeEmployee: boolean;
-//   yearsOfExperience?: number;
-//   location: string;
-// }
-
-// interface printTeacherFunction {
-//   (firstName: string, lastName: string): string;
-// }
-
-// // Function using object destructuring and the specified return string
-// function printTeacher({
-//   firstName,
-//   lastName,
-// }: {
-//   firstName: string;
-//   lastName: string;
-// }): string {
-//   return `${firstName.charAt(0)}. ${lastName}`;
-// }
-
-// // Example usage of printTeacher function
-// console.log(
-//   "PrintTeacher:",
-//   printTeacher({ firstName: "John", lastName: "Doe" })
-// );
-
 // ✅ Task 3 – printTeacher Function + Interface
 interface Teacher {
   readonly firstName: string;
