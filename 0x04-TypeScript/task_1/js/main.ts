@@ -36,12 +36,12 @@ const director1: Director = {
 console.log("Director:", director1);
 
 // ✅ Task 3 – printTeacher Function + Interface
-interface printTeacherFunction {
+interface printTeacher {
   (firstName: string, lastName: string): string;
 }
 
 // Function with 2 string parameters (required by grader)
-const printTeacher: printTeacherFunction = (
+const printTeacher: printTeacher = (
   firstName: string,
   lastName: string
 ): string => {
