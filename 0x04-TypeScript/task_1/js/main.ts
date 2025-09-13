@@ -35,20 +35,35 @@ const director1: Director = {
 
 console.log("Director:", director1);
 
-// ✅ Task 3 – printTeacher Function + Interface for Function Type
-// Interface for the function type
+// ✅ Task 3 – printTeacher Function + Interface
+interface Teacher {
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+}
+
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Named function using two string parameters
-function printTeacher(firstName: string, lastName: string): string {
+// Function using object destructuring and the specified return string
+function printTeacher({
+  firstName,
+  lastName,
+}: {
+  firstName: string;
+  lastName: string;
+}): string {
   return `${firstName.charAt(0)}. ${lastName}`;
 }
 
 // Example usage
-console.log("PrintTeacher:", printTeacher("John", "Doe")); // J. Doe
-
+console.log(
+  "PrintTeacher:",
+  printTeacher({ firstName: "John", lastName: "Doe" })
+);
 // ✅ Task 4 – StudentClass + Interfaces
 
 // Interface for constructor parameters
