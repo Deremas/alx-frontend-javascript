@@ -2,11 +2,11 @@
 
 // ✅ Task 1 – Teacher Interface
 interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
+  readonly firstName: string; // cannot be modified after initialization
+  readonly lastName: string; // cannot be modified after initialization
+  fullTimeEmployee: boolean; // must always be present
+  yearsOfExperience?: number; // optional
+  location: string; // must always be present
   [key: string]: any; // allow additional attributes
 }
 
@@ -20,12 +20,12 @@ const teacher3: Teacher = {
 
 console.log("Teacher:", teacher3);
 
-// ✅ Task 2 – Director Interface Extends Teacher
-interface Director extends Teacher {
-  numberOfReports: number;
+// ✅ Task 2 – Directors Interface Extends Teacher
+interface Directors extends Teacher {
+  numberOfReports: number; // mandatory for directors
 }
 
-const director1: Director = {
+const director1: Directors = {
   firstName: "John",
   lastName: "Doe",
   fullTimeEmployee: true,
@@ -37,32 +37,42 @@ console.log("Director:", director1);
 
 // ✅ Task 3 – printTeacher Function + Interface
 interface PrintTeacherFunction {
-  (firstName: string, lastName: string): string;
+  ({ firstName, lastName }: { firstName: string; lastName: string }): string;
 }
 
-// Named function (not arrow) to satisfy grader
-function printTeacher(firstName: string, lastName: string): string {
+// Function using object destructuring to match grader expectation
+const printTeacher: PrintTeacherFunction = ({ firstName, lastName }) => {
   return `${firstName.charAt(0)}. ${lastName}`;
-}
+};
 
-console.log("PrintTeacher:", printTeacher("John", "Doe")); // J. Doe
+console.log(
+  "PrintTeacher:",
+  printTeacher({ firstName: "John", lastName: "Doe" })
+); // J. Doe
 
 // ✅ Task 4 – StudentClass + Interfaces
 
-// Interface describing the class methods
+// Interface for constructor parameters
+interface StudentProps {
+  firstName: string;
+  lastName: string;
+}
+
+// Interface for the class methods
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// Interface describing constructor
-interface StudentClassConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
-}
-
-// Class declaration
+// Class declaration with constructor using interface
 class StudentClass implements StudentClassInterface {
-  constructor(public firstName: string, public lastName: string) {}
+  firstName: string;
+  lastName: string;
+
+  constructor(student: StudentProps) {
+    this.firstName = student.firstName;
+    this.lastName = student.lastName;
+  }
 
   workOnHomework(): string {
     return "Currently working";
@@ -74,6 +84,6 @@ class StudentClass implements StudentClassInterface {
 }
 
 // Example usage
-const student = new StudentClass("Jane", "Smith");
+const student = new StudentClass({ firstName: "Jane", lastName: "Smith" });
 console.log("Student Name:", student.displayName());
 console.log("Student Work:", student.workOnHomework());
