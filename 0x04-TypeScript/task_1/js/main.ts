@@ -21,11 +21,11 @@ const teacher3: Teacher = {
 console.log("Teacher:", teacher3);
 
 // ✅ Task 2 – Directors Interface Extends Teacher
-interface Directors extends Teacher {
+interface Director extends Teacher {
   numberOfReports: number; // mandatory for directors
 }
 
-const director1: Directors = {
+const director1: Director = {
   firstName: "John",
   lastName: "Doe",
   fullTimeEmployee: true,
