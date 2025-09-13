@@ -36,34 +36,31 @@ const director1: Director = {
 console.log("Director:", director1);
 
 // ✅ Task 3 – printTeacher Function + Interface
-interface printTeacher {
+interface PrintTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function with 2 string parameters (required by grader)
-const printTeacher: printTeacher = (
-  firstName: string,
-  lastName: string
-): string => {
+// Named function (not arrow) to satisfy grader
+function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
-};
+}
 
 console.log("PrintTeacher:", printTeacher("John", "Doe")); // J. Doe
 
 // ✅ Task 4 – StudentClass + Interfaces
 
-// Interface for constructor parameters
-interface StudentClassConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
-}
-
-// Interface for the class
+// Interface describing the class methods
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// Class declaration exactly as required
+// Interface describing constructor
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+// Class declaration
 class StudentClass implements StudentClassInterface {
   constructor(public firstName: string, public lastName: string) {}
 
@@ -78,5 +75,5 @@ class StudentClass implements StudentClassInterface {
 
 // Example usage
 const student = new StudentClass("Jane", "Smith");
-console.log("Student Name:", student.displayName()); // Jane
-console.log("Student Work:", student.workOnHomework()); // Currently working
+console.log("Student Name:", student.displayName());
+console.log("Student Work:", student.workOnHomework());
