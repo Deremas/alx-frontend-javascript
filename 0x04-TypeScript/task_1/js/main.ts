@@ -20,12 +20,12 @@ const teacher3: Teacher = {
 
 console.log("Teacher:", teacher3);
 
-// ✅ Task 2 – Directors Interface (Extends Teacher)
-interface Directors extends Teacher {
+// ✅ Task 2 – Director Interface (Extends Teacher)
+interface Director extends Teacher {
   numberOfReports: number; // mandatory property
 }
 
-const director1: Directors = {
+const director1: Director = {
   firstName: "John",
   lastName: "Doe",
   fullTimeEmployee: true,
