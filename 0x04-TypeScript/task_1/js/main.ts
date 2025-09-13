@@ -35,7 +35,8 @@ const director1: Director = {
 
 console.log("Director:", director1);
 
-// ✅ Task 3 – printTeacher Function + Interface
+// ✅ Task 3 – printTeacher Function + Interface for Function Type
+// Interface for the function type
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
