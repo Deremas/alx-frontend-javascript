@@ -36,11 +36,11 @@ const director1: Director = {
 console.log("Director:", director1);
 
 // ✅ Task 3 – printTeacher Function + Interface
-interface PrintTeacherFunction {
-  (args: { firstName: string; lastName: string }): string;
+interface printTeacherFunction {
+  (teacher: { firstName: string; lastName: string }): string;
 }
 
-// Named function declaration using object destructuring
+// Named function using object destructuring
 function printTeacher({
   firstName,
   lastName,
@@ -48,10 +48,10 @@ function printTeacher({
   firstName: string;
   lastName: string;
 }): string {
-  return `${firstName[0]}. ${lastName}`;
+  return `${firstName.charAt(0)}. ${lastName}`;
 }
 
-// Call the function
+// Example usage
 console.log(
   "PrintTeacher:",
   printTeacher({ firstName: "John", lastName: "Doe" })
