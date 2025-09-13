@@ -20,9 +20,9 @@ const teacher3: Teacher = {
 
 console.log("Teacher:", teacher3);
 
-// ✅ Task 2 – Director Interface (Extends Teacher)
+// ✅ Task 2 – Director Interface Extends Teacher
 interface Director extends Teacher {
-  numberOfReports: number; // mandatory property
+  numberOfReports: number;
 }
 
 const director1: Director = {
@@ -36,25 +36,40 @@ const director1: Director = {
 console.log("Director:", director1);
 
 // ✅ Task 3 – printTeacher Function + Interface
-interface PrintTeacherFunction {
+interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: PrintTeacherFunction = (firstName, lastName) =>
-  `${firstName.charAt(0)}. ${lastName}`;
+// Use a named function with destructured parameters
+function printTeacher({
+  firstName,
+  lastName,
+}: {
+  firstName: string;
+  lastName: string;
+}): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
+}
 
-console.log("PrintTeacher:", printTeacher("John", "Doe"));
+console.log(
+  "PrintTeacher:",
+  printTeacher({ firstName: "John", lastName: "Doe" })
+); // J. Doe
 
 // ✅ Task 4 – StudentClass + Interfaces
+
+// Interface for constructor parameters
 interface StudentConstructor {
   new (firstName: string, lastName: string): StudentClassInterface;
 }
 
+// Interface for the class
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
+// Class implementing the interface
 class StudentClass implements StudentClassInterface {
   constructor(public firstName: string, public lastName: string) {}
 
@@ -69,5 +84,5 @@ class StudentClass implements StudentClassInterface {
 
 // Example usage
 const student = new StudentClass("Jane", "Smith");
-console.log("Student Name:", student.displayName());
-console.log("Student Work:", student.workOnHomework());
+console.log("Student Name:", student.displayName()); // Jane
+console.log("Student Work:", student.workOnHomework()); // Currently working
