@@ -59,7 +59,7 @@ function printTeacher({
   return `${firstName.charAt(0)}. ${lastName}`;
 }
 
-// Example usage
+// Example usage of printTeacher function
 console.log(
   "PrintTeacher:",
   printTeacher({ firstName: "John", lastName: "Doe" })
