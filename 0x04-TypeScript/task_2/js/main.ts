@@ -74,3 +74,19 @@ console.log(isDirector(createEmployee(200)));
 console.log(isDirector(createEmployee(1000)));
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
+
+// String literal type
+type Subjects = "Math" | "History";
+
+// teachClass function
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else if (todayClass === "History") {
+    return "Teaching History";
+  }
+}
+
+// Expected results for teachClass
+console.log(teachClass("Math"));
+console.log(teachClass("History"));
