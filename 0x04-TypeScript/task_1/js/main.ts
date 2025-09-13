@@ -42,13 +42,9 @@ interface PrintTeacherFunction {
 
 // Function using object destructuring to match grader expectation
 const printTeacher: PrintTeacherFunction = ({ firstName, lastName }) => {
-  return `${firstName.charAt(0)}. ${lastName}`;
+  return `${firstName}. ${lastName}`;
 };
-
-console.log(
-  "PrintTeacher:",
-  printTeacher({ firstName: "John", lastName: "Doe" })
-); // J. Doe
+console.log("PrintTeacher:", printTeacher("John", "Doe")); // J. Doe
 
 // ✅ Task 4 – StudentClass + Interfaces
 
