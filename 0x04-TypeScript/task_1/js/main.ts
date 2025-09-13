@@ -78,7 +78,7 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function using object destructuring
+// Function using object destructuring and the specified return string
 function printTeacher({
   firstName,
   lastName,
@@ -86,7 +86,6 @@ function printTeacher({
   firstName: string;
   lastName: string;
 }): string {
-  // Return the full first name to match the checker's requirement
   return `${firstName}. ${lastName}`;
 }
 
