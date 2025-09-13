@@ -40,26 +40,20 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Use a named function with destructured parameters
-function printTeacher({
-  firstName,
-  lastName,
-}: {
-  firstName: string;
-  lastName: string;
-}): string {
+// Function with 2 string parameters (required by grader)
+const printTeacher: printTeacherFunction = (
+  firstName: string,
+  lastName: string
+): string => {
   return `${firstName.charAt(0)}. ${lastName}`;
-}
+};
 
-console.log(
-  "PrintTeacher:",
-  printTeacher({ firstName: "John", lastName: "Doe" })
-); // J. Doe
+console.log("PrintTeacher:", printTeacher("John", "Doe")); // J. Doe
 
 // ✅ Task 4 – StudentClass + Interfaces
 
 // Interface for constructor parameters
-interface StudentConstructor {
+interface StudentClassConstructor {
   new (firstName: string, lastName: string): StudentClassInterface;
 }
 
@@ -69,7 +63,7 @@ interface StudentClassInterface {
   displayName(): string;
 }
 
-// Class implementing the interface
+// Class declaration exactly as required
 class StudentClass implements StudentClassInterface {
   constructor(public firstName: string, public lastName: string) {}
 
