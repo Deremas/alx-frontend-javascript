@@ -37,25 +37,16 @@ console.log("Director:", director1);
 
 // ✅ Task 3 – printTeacher Function + Interface
 interface printTeacherFunction {
-  (teacher: { firstName: string; lastName: string }): string;
+  (firstName: string, lastName: string): string;
 }
 
-// Named function using object destructuring
-function printTeacher({
-  firstName,
-  lastName,
-}: {
-  firstName: string;
-  lastName: string;
-}): string {
+// Named function using two string parameters
+function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
 }
 
 // Example usage
-console.log(
-  "PrintTeacher:",
-  printTeacher({ firstName: "John", lastName: "Doe" })
-); // J. Doe
+console.log("PrintTeacher:", printTeacher("John", "Doe")); // J. Doe
 
 // ✅ Task 4 – StudentClass + Interfaces
 
