@@ -64,6 +64,44 @@ console.log(
   "PrintTeacher:",
   printTeacher({ firstName: "John", lastName: "Doe" })
 );
+
+// // ✅ Task 4 – StudentClass + Interfaces
+
+// // Interface for constructor parameters
+// interface StudentProps {
+//   firstName: string;
+//   lastName: string;
+// }
+
+// // Interface for the class methods
+// interface StudentClassInterface {
+//   workOnHomework(): string;
+//   displayName(): string;
+// }
+
+// // Class declaration with constructor using interface
+// class StudentClass {
+//   firstName: string;
+//   lastName: string;
+
+//   constructor(student: StudentProps) {
+//     this.firstName = student.firstName;
+//     this.lastName = student.lastName;
+//   }
+
+//   workOnHomework(): string {
+//     return "Currently working";
+//   }
+
+//   displayName(): string {
+//     return this.firstName;
+//   }
+// }
+
+// // Example usage
+// const student = new StudentClass({ firstName: "Jane", lastName: "Smith" });
+// console.log("Student Name:", student.displayName());
+// console.log("Student Work:", student.workOnHomework());
 // ✅ Task 4 – StudentClass + Interfaces
 
 // Interface for constructor parameters
@@ -78,8 +116,8 @@ interface StudentClassInterface {
   displayName(): string;
 }
 
-// Class declaration with constructor using interface
-class StudentClass implements StudentClassInterface {
+// Class declaration with constructor
+class StudentClass {
   firstName: string;
   lastName: string;
 
